@@ -1,0 +1,53 @@
+
+# 문자열 관련 함수들
+# 문자열 내부 함수로 뭔짓을 해도 원본은 그대로 ! 걍 복사해다가 쓰는거
+
+
+#문자 개수 세기(count)
+a = "hobby"
+a.count('b')
+#문자열 중 문자 b의 개수 2 출력
+
+
+#소문자를 대문자로 바꾸기 (upper)
+aa = "hi"
+aa.upper() # HI 출력
+#()사이가 공백, 전달값이 없는 함수도 존재한다.
+
+#대문자를 소문자로 (lower)
+aaa = "HI"
+aaa.lower() # hi 출력
+
+
+#문자열 바꾸기
+aaaa = "Life is too short
+aaaa.replace("Life", "Your leg")
+#"Your len in too short" 출력
+
+
+#### 수업에서 skip
+
+#위치 알려주기1(find)
+b = "Python is the best choice"
+b.find('b') #14출력
+b.find('k') #-1출력
+#문자열 중 문자 b가 처음으로 나온 위치를 반환한다. 
+#만약 존재하지 않는다면 -1을 반환
+
+
+
+#위치 알려주기2(index)
+c = "Life is too short"
+c.index('t') # 8출력
+c.index('k') # 오류발생
+
+#문자열 중 문자 t가 맨 처음으로 나온 위치를 반환한다. 
+#존재하지 않는다면 오류 발생 - ValueError어쩌구 나옴
+#find와 달리 존재하지 않는 문자를 찾으면 오류가 발생
+
+
+
+
+#등등등 .. 책보고 써보기
+
+
