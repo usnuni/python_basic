@@ -1,0 +1,81 @@
+
+
+# Formatting : 문자열 양식을 만들어, 빈칸을 채운다.
+# (format code %) %d, %s : d는 숫자 넣을 때, s는 문자
+
+
+comment = "현재 온도는 %d도입니다." #숫자
+print(comment % 20)
+print(comment % 25)
+print(comment % 36)
+
+# %를 그대로 출력
+wet = "현재 습도는 %d%%입니다."
+print(wet % 12)
+print(wet % 59)
+print(wet % 31)
+
+name = "my name is %s" #문자
+print(name % "ari")
+
+
+#삽입 할 데이터가 2개 이상일 경우
+# 값을 괄호로 다 묶고, 쉼표로 구분지어야 한다.
+cat = "제 이름은 %s이고, 나이는 %d살입니다."
+print(cat % ("쿠키", 8))
+
+
+#format코드 中 %s 는 어떤 형태의 값이든 대입할 수 있다.
+#어차피 다 문자열로 표현되기 때문
+
+
+# format code 사이에 숫자를 삽입하면, 형태가 달라진다.
+blank = "%20s" # 양수 : 20개의 칸 중 오른쪽 정렬
+blank2 = "%-20s" # 음수 : 20개의 칸 중 왼쪽 정렬
+print(blank % 9)
+print(blank % "hi")
+print(blank2 % 9)
+print(blank2 % "hi")
+
+#소수점 표현하기
+circle = "%0.4f" #소수점 네번재 까지 표현 (반올림 되는 듯)
+print(circle % 3.141592)
+
+
+#위 두개를 결합
+circle2 = "%10.4f" #소수점 네번재 까지 표현, 10개의 칸
+print(circle2 % 3.141592)
+
+
+# f문자열 formatting : 비워둘 수 없는 formatting
+
+
+name = "ari"
+age = 486
+
+print(f'나의 이름은 {name}입니다. 나이는 {age}입니다.')
+print(f'나는 내년이면 {age+1}살이 된다.')
+#  이 f를 따옴표 밖에 써줘야한다.
+
+
+
+##### 이 밑으로는 사용 빈도 낮음, 수업에서 skip ####
+
+
+#format 함수를 사용한 formatting {}  
+
+eat = "I eat {0} apples."
+print(eat.format(3)) #얘는 .을 붙여야한당
+
+eat2 = "I eat {0} apples and {1} pears."
+print(eat2.format(3, "a lot of")) # 여러개도 가능, 쉼표로 구분
+
+eat3 = "I eat {0} apples, in my {where}."
+print(eat3.format(5, where="studio"))
+
+
+# 딕셔너리 : key와 value를 한 쌍으로 갖는 자료형
+d = {'name2':'ari', 'age2':'486'}
+print(f'나의 이름은 {d["name2"]}입니다. 나이는 {d["age2"]}입니다.')
+
+
