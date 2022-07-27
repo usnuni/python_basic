@@ -1,0 +1,57 @@
+
+#review
+#문자열 : 문자를 나열한 형태의 데이터
+#줄바꿈 : 두 줄 이상으로 처리하자(開行)
+#escape code : 조합 문자로 다른 동작 처리하기 (\n \t .. etc)
+
+a = 'my name is ~~'
+b = "good bye"
+c = '''we can
+change line'''
+d = """have\ta
+nice day"""
+
+#파이썬의 모든 데이터 : print 명렁어로 출력 가능
+
+print(a)
+print(b)
+print(c)
+print(d)
+
+
+
+#문자열 연산하기
+#기호를 써서 변수와 데이터 짝짓는 것을 '대입'이라고 한다.
+
+#덧셈 : 이어붙이기, 곱셉 : 반복
+
+name = "ari"
+desc = "happy "
+
+print(desc+name)
+print(name*3)
+
+#더할 때 자동으로 공백주기, 곱셈은 안됨
+#print는 쉼표를 사용해 여러개 출력하면 공백 추가
+
+aaa = "good"
+bbb = "girl"
+print(aaa , bbb)
+
+
+
+#문자열 길이 구하기 : len(), 길이를 계산해서 반환
+#문자열, 리스트, 튜플 정도만 가능
+
+print(len(name))
+
+anything = 'sdfjsfvnzkdjfbvngkjxfd'
+print(len(anything))
+
+
+love = "I Love My pet, Cookie"
+print(len(love))
+
+
+
+
