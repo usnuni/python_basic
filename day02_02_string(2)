@@ -1,0 +1,50 @@
+
+
+#문자열은 가지고 있는 문자의 순서대로 인덱스 번호를 매긴다.
+#인덱스 번호는 0부터 시작한다.
+
+a = "Life is too short!"
+#    01234 ...        17
+
+print(len(a))
+
+# indexing : 해당 index 번호의 문자를 가져온다.
+#여기서 '가져온다'란, 복사해온다는 뜻.
+
+a[5] # i
+print(a[12]) # s 출력
+print(a[-2]) # t 출력, 음수는 맨 끝이 -1
+
+#범위를 벗어난 숫자를 쓰면 에러가 난다.
+
+
+
+# Slicing : 주어진 범위만큼 잘라내라.
+# '잘라낸다'란, 이 또한 복사를 한다.
+
+b = "You need Python"
+
+b[4:8] #need
+#끝번호 전까지 잘라내기 때문에 7이아닌 8입력.
+print(b[4:8]) # need 출력
+
+#앞 뒤 생략 가능
+print(b[:8]) # ~need
+print(b[4:]) # need~
+print(b[:])  # 전체
+
+# but 인덱싱과 달리 번호를 틀려도 에러가 나지 않는다.
+# 번호를 벗어나면 시작 또는 끝으로 해석
+print(b[4:19]) 
+
+
+today = "20220727Sunny"
+year = today[0:4]
+date = today[4:8]
+weather = today[8:]
+
+print(year)
+print(date)
+print(weather)
+
+print("Today is", weather, "day")
