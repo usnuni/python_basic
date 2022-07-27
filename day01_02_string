@@ -1,0 +1,31 @@
+
+
+number = 100
+
+fruit = "apple"
+print(fruit)
+
+smartphone = 'iph"one'
+print(smartphone)
+
+#""사이에는 '가능, ''사이에는 "가능
+
+#따옴표 하나로 묶인 문자열은 엔터치면 끝난다.
+#세개로 묶으면 가능
+article = """서태지와
+    아이들 은퇴..."""
+print(article)
+
+
+
+
+
+#\ 어쩌구 - 무조건 들어가는 따옴표
+name = "kang\" yoon\' ho"
+print(name)
+
+song = "오 그대여 가지마세요\n\n\n\n 나를 정말 떠나가나요"
+print(song)
+
+
+
