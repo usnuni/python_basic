@@ -1,0 +1,27 @@
+
+# while : 주어진 조건이 만족하는 동안 반복.
+# 조건이 언젠가는 불만족하도록 설정해야 한다.
+
+
+num = 1
+
+while num < 10 :
+    print("변수 num을 1 증가시키자")
+    num = num +1
+print(num)
+
+
+while num > 0 :
+    print("변수 num을 1 감소시키자")
+    num = num -1
+print(num)
+
+
+
+# input 사용
+
+answer = ""
+
+while answer != "a" :
+    answer = input("a 라고 쓸 때까지 반복 : ")
+    
