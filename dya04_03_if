@@ -1,0 +1,98 @@
+
+# 제어문 ; 프로그램의 흐름을 제어하는 구문(코드)
+# 종류1 : 조건문 - 주어진 조건에 따라 동작이 달라진다.
+# 종류2 : 반복문 - 비슷한 코드를 여러 번 반복 수행한다.
+
+
+# if 문 : 주어진 조건에 따라 동작을 다르게 구현
+# 조건 : bool 데이터로 해석될 수 있는 모든 것
+
+
+money = True
+if money :
+    print("택시를 타고 가라")
+    print('taxi')
+else :
+    print("걸어 가라")
+
+
+# 비교 연산자
+# 비교 연산은 논리 연산보다 우선 순위가 높다.
+
+x = 3
+y = 2
+print(x > y)    # True 출력
+print(x == y)   # False 출력
+print(x != y)   # 같지 않다 (True)
+
+
+
+# 논리 연산자 (and, or, not)
+# 논리 연산자의 항은 bool 데이터다.
+
+print( 1 in [1, 2, 3])      # True 출력
+print( 1 not in [1, 2, 3])  # False 출력
+
+
+qian = 2000
+if qian >= 3000 :
+    print("택시를 타고 가라")
+else :
+    print("걸어 가라")
+
+
+age = 16
+height = 150
+if age > 12 and height > 180 :
+    print("롤러코스터 탑승해도 됩니다")
+else :
+    print("아직 어리거나, 키가 작네용~")
+    
+
+customer = 85
+if customer >= 80 or customer <=7 :
+    print("무료")
+else :
+    prit("돈내라")
+
+
+rich = 2000
+card = True
+if qian >= 3000 or card :
+    print("택시를 타고 가라")
+else :
+    print("걸어 가라")
+
+
+
+
+# 조건 만들기 - 포함 여부 (in, not in)
+
+pocket = ['paper', 'cellphone', 'coin']
+if "cell phone" not in pocket :
+    print("내 전화기 어디갔지?")
+else :
+    print("찾았다!")
+
+
+jacket = ['paper', 'cellphone', 'coin']
+if "coin" in jacket :
+    pass # 아무것도 안 하고 넘어가기
+    # pass는 모든 구문에서 같은 역할을 한다.
+else :
+    print("저금통에 넣었어요")   # 아무것도 출력되지 않는다
+
+
+
+# 다양한 조건을 판단하는 elif
+
+me = [26, "ari"]
+you = True
+if "name" in me :
+    print("안녕하세요!")
+elif you :
+    print("반갑습니다.")
+else :
+    print("누구세요?")
+
+
