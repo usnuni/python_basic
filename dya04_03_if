@@ -82,17 +82,3 @@ if "coin" in jacket :
 else :
     print("저금통에 넣었어요")   # 아무것도 출력되지 않는다
 
-
-
-# 다양한 조건을 판단하는 elif
-
-me = [26, "ari"]
-you = True
-if "name" in me :
-    print("안녕하세요!")
-elif you :
-    print("반갑습니다.")
-else :
-    print("누구세요?")
-
-
