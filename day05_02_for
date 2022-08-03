@@ -29,3 +29,44 @@ for n in t :
     if n % 2 == 1 :
         continue
     print(n)
+
+# range 함수 : 시작부터 끝 전까지의 객체 생성
+# range(0,5) = 0~4
+
+numbers = range(1, 101)
+
+# list는 다른 콜렉터를 리스트 형태로 변환
+
+print(list(numbers))
+
+# 1부터 n까지의 총 합을 구해보기
+
+it = range(1, 11)
+total = 0
+for i in it :
+    total = total + i
+print("총 합은 : %d" % total)
+
+# 1부터 n 까지 중 3의 배수의 총 합을 구해보자
+
+itt = range(1, 11)
+total1 = 0
+for t in itt :
+    if t % 3 == 0:
+        total1 = total1 + t
+print("총 합은 : %d" % total1)
+
+
+# ------- for 으로 구구단 구현하기 ----------
+
+for dan in range(2, 10):
+    for mul in range(1,10):
+        print("%d 곱하기  %d 는 :" % (dan, mul), dan * mul)
+
+# 프린트 출력내용 뒤에 ( , end="" )를 입력하면
+# end 변수의 내용이 줄바꿈 대신 출력
+
+for dan1 in range(2, 10):
+    for mul1 in range(1,10):
+        print(dan1 * mul1, end=" ")
+    print("")
