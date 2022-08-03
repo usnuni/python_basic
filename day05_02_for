@@ -1,0 +1,31 @@
+
+# for : 주어진 리스트, 튜플, 문자열의 len 만큼 반복
+# for의 변수 : 한 번 반복할 때 마다 값이 바뀌는 변수
+
+word = "python"
+for w in word :
+    print('현재 반복변수의 값은 : %s' % w)
+
+fruits = ["apple", "orange", "kiwi"]
+for yummy in fruits :
+    print('현재 과일은 : %s' % yummy)
+
+# 합격 불합격 구분하기
+
+marks = [89, 55, 46, 77, 100, 30, 61]
+rank = 0
+for m in marks :
+    rank = rank +1
+    if m >= 60 :
+        print("%d번 %d점 합격" % (rank, m))
+    else :
+        print("%d번 %d점 불합격" % (rank, m))
+
+# 모든 반복문에서 break, continue 역할은 같다.
+
+t = (1, 2, 3, 4, 5, 6, 7) # 튜플은 괄호 생략가능
+
+for n in t :
+    if n % 2 == 1 :
+        continue
+    print(n)
