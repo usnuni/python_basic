@@ -76,3 +76,19 @@ def returnValue() :
     return 20 # 하나 더 써도 이 줄은 없는거나 마찬가지
 print(returnValue())
 
+
+# 매개변수 초기값 미리 설정하기 
+# 초기값이란 : 매개변수에 이미 들어있는 값
+# 초기값이 있어도, 새 값이 전달되면 값이 변경된다
+
+# 디폴트 파라미터는 반드시 뒷부분에 몰아서 쓰자
+# 앞 부분에 작성하면 뒤에 비어있는 매개변수가 생길 수 있다
+
+def introduce(name, old, town = '대전광역시') :
+    print('제 이름은 %s입니다.' % name)
+    print('나이는 %d살 입니다.' % old)
+    print('사는 곳은 %s입니다.' % town)
+
+introduce('코코', 13)
+introduce('쿠키', 10, '청주시') 
+introduce('나나', 8)
