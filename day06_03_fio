@@ -1,0 +1,53 @@
+
+# 파일 생성하기
+# open(파일명, 파일 열기 모드)
+# w, a 모드는 주어진 파일명이 존재하지 않으면, 생성
+# 존재 할 경우에는, 이미 존재하던 파일을 연다.
+# r 모드는 반드시 존재해야 한다.
+
+f = open("first.txt", 'w') # 파일 객체가 반환된다
+f.write("안녕하세요.. 월요일 저녁입니다..")
+for i in range(1, 11):
+    f.write("%d 번째 줄입니다. \n" % i)
+f.close()
+
+
+ff = open("song.txt", 'r')
+
+# 전체 내용 가져오기
+result = ff.read() 
+print(result)
+
+# 각 줄을 따로 모아오기 - 1
+result2 = ff.readlines()
+print(result2)
+
+# 각 줄을 따로 모아오기 - 2
+result3 = ff.readlines()
+for line in result3 :
+    print(line, end = "")
+
+# 한 줄만 읽어오기 - 1
+result4 = ff.readline() # 첫째줄
+print(result4)
+result4 = ff.readline() # 두 줄이 읽힘
+print(result4)
+
+# 한 줄만 읽어오기 - 2
+# 더는 읽을 것이 없을 때 까지 가져온다
+
+while True :
+    line = ff.readline()
+    if bool(line) == False :
+        break
+    print(line, end = '')
+
+ff.close()
+
+
+# 기존의 것을 가져오되, 끝에 내용을 추가
+
+fff = open("asa.txt", 'a')
+for i in range(30, 55):
+    fff.write("%d 번째 줄입니다. \n" % i)
+fff.close()
