@@ -1,0 +1,78 @@
+
+# 함수의 네 가지 유형
+# 1.매개변수와 반환이 다 있는 유형
+# 2 & 3. 둘 중 하나만 있는 유형
+# 4. 둘 다 없는 유형
+
+# 함수의 선언 및 정의
+def say_Hello() :
+    print('안녕하세요')
+    print('반갑습니다')
+
+def howDoYouFeel(feel) :
+    print('지금 내 기분은 : %s' % feel)
+
+
+# return : 함수가 데이터를 반환하게 만들어준다
+def howMuch(price) :
+    return "금액은 %s 입니다!" % price
+
+
+# 함수 호출문
+howDoYouFeel('good')
+howDoYouFeel('bad')
+
+print(howMuch('5000원'))
+
+
+# 함수에 값을 전달하면, 매개변수(parameter) 순서대로 전달된다.
+def forecast(w, r) :
+    print('오늘의 날씨는 %s 이고, 강수 확률은 %s 입니다.' % (w, r))
+forecast('맑음', '30%')
+# 매개변수 지정하여 호출하기로 인수(=인자, argument) 전달 순서 변경이 가능.
+forecast(r = '50%', w = '비')
+
+
+# 입력값이 몇 개가 될지 모를 때
+def getTotal(a, b, c) :
+    result = a + b + c
+    return result
+print(getTotal(3, 6, 9))
+# 3개가 아닌 값을 입력하면 에러가 난다
+
+
+# 가변 매개변수 : 값이 몇 개가 전달될지 모를 때 써두는 매개변수
+# *이 붙은 매개변수를 인자를 모아 하나의 튜플로 만들어준다.
+def getTotal2(*arg) :
+    print(arg) # 사용할 때는 *생략
+print(getTotal2(1, 2, 3))
+print(getTotal2(1, 2, 3, 4))
+print(getTotal2(1, 2, 3, 4, 5))
+
+def getTotal3(*arg3) :
+    total = 0
+    for a in arg3 : # 반복문 사용
+        total = total + a
+    return total
+print(getTotal3(1, 2, 330))
+print(getTotal3(1, 2, 3, 4))
+print(getTotal3(1, 2, 3, 4, 5))
+
+
+# 키워드 파라미터 : **
+# 인자를 받아서 딕셔너리를 만들어준다.
+def kp(**p) :
+    print(p)
+
+# 매개변수 지정하여 호출하기를 요구한다.
+kp(name = 'ari', town = '대전') # 이름 여기서 맘대로 만듦
+
+
+# 함수의 반환값(결과값)은 반드시 하나이거나 없다.
+# return의 특징 : 값을 반환하면서 함수를 강제 종료한다.
+# 즉 반환값을 입력하지 않아도 강제 종료
+def returnValue() :
+    return 10 # 쉼표로 구분하면 튜플이 되고, 띄어쓰기하면 오류
+    return 20 # 하나 더 써도 이 줄은 없는거나 마찬가지
+print(returnValue())
+
