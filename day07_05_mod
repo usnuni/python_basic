@@ -1,0 +1,46 @@
+
+# 모듈 : 함수나 변수, 또는 클래스를 모아 놓은 파일
+
+# 모듈 불러오기 : 다른 파일의 내용을 가져온다.
+# import : 다른 모듈의 내용 가져오기 키워드.
+# 주의사항: import는 같은 폴더에 있거나, 시스템에 내장된 모듈만 가져올 수 있다.
+
+
+
+# ----- aaa -----
+
+def sayHi() :
+    print('안녕')
+
+def getBigger(a, b) :
+    if a > b :
+        print("%d이(가) 더 커요" % a)
+    else :
+        print('%d이(가) 더 커요' % b)
+
+
+# ----- bbb -----
+
+dogName = '바둑이'
+dogBreed = '진돗개'
+
+def bark() :
+    print('멍 멍 멍')
+
+
+# ----- main -----
+
+import aaa # 가져왔다
+
+aaa.sayHi() # 앞에서 파일 이름을 다시 선언 해주어야 한다.
+aaa.getBigger(10, 20)
+
+
+# 일일히 선언하기 귀찮을 때
+
+from bbb import bark, dogName, dogBreed
+
+# from bbb import * : *을 쓰면 bbb의 모든 것을 가져온다.
+
+
+bark()
