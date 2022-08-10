@@ -1,0 +1,24 @@
+
+
+# ----- bird -----
+
+def flying() :
+    print('비둘기가 날 줄 아네')
+
+def layEgg() :
+    print('알을 낳고 있네')
+
+if __name__ == "__main__" :
+flying()
+flying()
+layEgg()
+layEgg()
+
+# ----- main -----
+
+import bird
+# 호출문까지 모두 출력된다 ( 위에서 name main 어쩌구 없는 경우)
+
+
+# if __name__ == "__main__" 을 사용하면 실행중인 주체에서만 출력되고,
+# 모듈로써 가져다가 실행되는 경우 출력되지 않는다
