@@ -1,0 +1,43 @@
+
+class Person :
+    town = '대전' #클래스 변수 :모든 객체가 같은 값
+    def setSpec(self, n, g, j) :
+        self.name = n # 객체 변수 : 모든 객체가 서로 다른 값
+        self.gender = g
+        self.job = j
+    def introduce(self) :
+        form = "이름 : %s, 성별 : %s, 직업 : %s"
+        print(form % (self.name, self.gender, self.job))
+
+p1 = Person()
+p2 = Person()
+
+p1.setSpec('서인국', '남자', '가수')
+p2.setSpec('공효진', '여자', '배우')
+
+p1.introduce()
+p2.introduce()
+
+
+
+
+# class 내부에는 객체 변수의 초기화를 담당하는 함수를 정의할 수 있다.
+# __init__ : 생성자
+# 객체 생성 시에 값을 넣을 수 있다.
+
+class Person2 :
+    town = '대전' #클래스 변수 :모든 객체가 같은 값
+    def __init__(self, n, g, j) :
+        self.name = n # 객체 변수 : 모든 객체가 서로 다른 값
+        self.gender = g
+        self.job = j
+    def introduce(self) :
+        form = "이름 : %s, 성별 : %s, 직업 : %s"
+        print(form % (self.name, self.gender, self.job))
+
+p3 = Person2('관우', '남자', '가수')
+p4 = Person2('조조', '여자', '배우')
+
+p3.introduce()
+p4.introduce()
+
