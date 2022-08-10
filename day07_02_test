@@ -1,0 +1,53 @@
+
+# 연습문제 풀어보기
+
+# Q1 주어진 자연수가 홀수인지, 짝수인지
+
+def is_odd(number):
+    if number % 2 == 1 :
+        print("홀수입니다.")
+    else :
+        print('짝수입니다')
+
+is_odd(3)
+is_odd(4)
+is_odd(3234)
+
+
+
+# Q2 입력되는 모든 값의 평균을 구해주는 함수 작성
+
+def getMean(*args) :
+    result = 0
+    for i in args :
+        result = result +i
+    return result / len(args)
+
+print(getMean(234, 44, 22))
+print(getMean(1,2,3,4,5,6,7,8,9,10))
+
+
+
+# Q5
+
+f1 = open("mylife.txt", 'w')
+f1.write("Life is too short")
+f1.close()
+
+f2 = open("mylife.txt", 'r')
+print(f2.read())
+f2.close()
+
+
+
+# Q7 글자 바꾸기
+
+f3 = open('test.txt', 'r')
+pp = f3.read()
+f3.close()
+
+pp = pp.replace('java', 'python')
+
+f3 = open('test.txt', 'w')
+f3.write(pp)
+f3.close()
