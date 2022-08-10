@@ -1,0 +1,11 @@
+
+# 모듈 : 함수나 변수, 또는 클래스를 모아 놓은 파일
+
+def sayHi() :
+    print('안녕')
+
+def getBigger(a, b) :
+    if a > b :
+        print("%d이(가) 더 커요" % a)
+    else :
+        print('%d이(가) 더 커요' % b)
