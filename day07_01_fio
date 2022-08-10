@@ -1,0 +1,25 @@
+
+# review
+f = open('sample.txt', 'w')
+f.write('이번주는 비가 너무 많이 와용~')
+f.close()
+
+
+# with 문과 함께 사용하기
+# with문 : 실행한 동작의 마무리를 자동으로 처리해준다.
+
+with open('sample.txt', 'r') as f :
+    # with 블록을 벗어나는 순간 열린 객체가 자동으로 닫힘
+    content = f.read()
+    print(content)
+    # 열고 읽어들이고 출력
+    # close를 쓰지 않아도 쓴 것과 같은 효과
+    
+    
+# 전혀 다른 위치에 파일이 있을 때
+# 파일의 위치까지 정확히 써주면 된다.
+
+# 파이썬에서 \ : '~에 있는' 의미
+
+f = open('C:\sample\outer.txt', 'r')
+f.close()
