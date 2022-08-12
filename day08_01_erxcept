@@ -1,0 +1,61 @@
+
+# review
+
+# 모듈 : 파이썬 파일
+# 변수, 함수, 클래스 등 데이터 자원이 존재하는 파일
+# 다른 모듈에서 가져다 사용할 수 있는 파일
+
+# 패키지 : 모듈이 모여있는 폴더(디렉터리)
+
+# -------------------
+
+
+# 오류의 종류
+# 1. 문법적 오류 : 문법이 잘못되어, 이예 동작할 수가 없는 상황
+# 2. 논리적 예외 : 문법에는 문제가 없지만, 동학하는 데 문제가 있는 상황
+# 예외 처리 : 논리적 예외로 인한 에러 발생을 예방하는 처리
+
+
+# try_expect : 예외 처리 구문
+# try : 예외가 발생할지도 모르는 코드를 담는 구문
+# except : 만약에 예외가 발생하면 어떻게 할지를 담는 구문
+
+try :
+    number = [1, 2, 3]
+    print(number[8])
+except :
+    print('예외가 발생했네요! 주의해주세요!')
+
+
+
+# 예외 종류를 명시해보자
+# 명시된 예외에 대해서만 except가 반응하도록 함
+# 대신 여러 개를 연달아 명시할 수도 있다.
+# try에서 예외가 발생하는 순간, try는 강제 종료된다.
+
+try :
+    f = open('nonono.txt', 'r')
+    f.close()
+except FileNotFoundError:
+    print('존재하지 않는 파일을 열려고 하다니..')
+except IndexError:
+    print('인덱스 번호 잘못 썼어요!')
+
+
+# 예외 발생 시 예외 관련 메세지를 출력하자
+
+try :
+    print(4/0)
+except ZeroDivisionError as msg :
+    print(msg)
+    
+# 예외 처리시 최종 동작 따로 지정하기
+
+try :
+    f = open('note.txt', 'w')
+    value = 4/0
+    f.close()
+except :
+    print('예외가 발생했네요')
+finally :
+    f.close()
