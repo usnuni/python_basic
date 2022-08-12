@@ -1,0 +1,33 @@
+
+# 파이썬 라이브러리 turtle : 그림 그리기 기능을 제공하는 모듈
+
+import turtle
+
+cursor = turtle.Turtle()
+cursor.shape('turtle') # square, circle, triangle 등 가능
+cursor.color('green')
+cursor.speed(1) # 1~10 可以, 0이면 과정없이 그림 출력
+screen = cursor.getscreen()
+
+# 그림 그려보자 : 4가지 함수 사용
+# forward(px), backward(px), left(degree), right(degree)
+
+cursor.left(45)
+cursor.forward(200)
+cursor.left(90)
+cursor.forward(80)
+cursor.left(45)
+cursor.forward(30)
+cursor.left(45)
+cursor.forward(80)
+cursor.right(90)
+cursor.forward(80)
+cursor.left(45)
+cursor.forward(30)
+cursor.left(45)
+cursor.forward(80)
+cursor.left(90)
+cursor.forward(200)
+
+screen.listen()
+cereen.mainloop()
