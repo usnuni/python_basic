@@ -1,0 +1,28 @@
+
+# review, 웹사이트의 정보를 가져오자 (웹스크래핑)
+# cf ) 웹 크롤링 : 웹에 있는 정보 추출하는 작업을 자동화 하는 것
+
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://sports.news.naver.com/kfootball/index'
+
+# 웹으로부터 입력을 받는다
+
+response = requests.get(url)
+# request 만으로 코드를 가져왔을 때의 문제점 
+# : 소스코드가 문자열 형태로 출력되어 해석하기 까다로움
+
+htmlCode = response.text
+bs = BeautifulSoup(htmlCode, 'html.parser') # 해석할 때 룰
+
+result = bs.select_one('h2.news_title') # 맨 처음 하나만 출력
+print(result)
+print(result.text)
+
+result2 = bs.select('a.link_news_end') # 여러개가 다 출력
+print(result2) # list 형태로 출력된다
+print(result.text)
+
+for tag in result2:
+    print(tag.text) # for 활용해서 내용만 보기
