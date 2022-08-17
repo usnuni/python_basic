@@ -1,0 +1,60 @@
+
+# -----직접 해보기-----
+
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://entertain.naver.com/movie'
+
+response = requests.get(url)
+htmlCode = response.text
+
+bs = BeautifulSoup(htmlCode, 'html.parser')
+
+tits = bs.select('a.tit')
+
+# 특정 관련 기사만 보고 싶을 때, 필터링
+# 파이썬에서 처리해보기
+
+keyword = '늑대사냥'
+
+for title in tits:
+    if keyword in title.text :
+        print(title.text)
+    else :
+        continue
+        
+        
+
+# ------ 이미지 내용 ------
+
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://entertain.naver.com/movie'
+
+response = requests.get(url)
+htmlCode = response.text
+
+bs = BeautifulSoup(htmlCode, 'html.parser')
+
+# 이미지 가져와보기
+# 이미지에만 있는 식별자 src (소스)
+
+images = bs.select('img')
+imgLength = len(images)
+# 이미지 태그에서 원본 소스만 따로 읽어보자
+
+for image in images :
+    source = image.attrs['src'] # arrtibutes : 이미지가 가지고 있는 속성
+    print(source) # 속성중에 src의 값만 따로 출력
+       
+# 원본소스에 있는 이미지를 내 컴퓨터에 저장해보자
+
+lastImage = images[imgLength - 1] # 마지막 요소에 접근
+lastSrc = lastImage.attrs['src']
+
+f = open('image.jpg', 'wb')
+imgResponse = requests.get(lastSrc)
+f.write(imgResponse.content)
+f.close()
