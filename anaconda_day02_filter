@@ -26,7 +26,7 @@ for title in tits:
         
         
 
-# ------ 이미지 내용 ------
+# ------ 이미지 쇼스 추출해서 저장하기 ------
 
 import requests
 from bs4 import BeautifulSoup
@@ -59,4 +59,50 @@ f = open('image.jpg', 'wb')
 
 imgResponse = requests.get(lastSrc)
 f.write(imgResponse.content)
+f.close()
+
+
+# -----코스피 지수 확인해보기 -----
+
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://finance.naver.com/'
+
+response = requests.get(url)
+htmlCode = response.text
+
+bs = BeautifulSoup(htmlCode, 'html.parser')
+
+# kospi = bs.select_one('span.num') 여러개가 있으니까 고르자
+# 좀 더 구체적으로 선택해주기 - 태그의 포함관계 확인
+
+kospi = bs.select_one('div > a > span > span.num')
+# 몇 단계를 선택할지는 자유
+print(kospi)
+print(kospi.text)
+
+
+
+# -----내가 선택한 종목 시세에서 현재가 가져오기(한국전력)-----
+# 그리고 그 내용이 쓰여있는 파일 price.txt를 만들어 확인
+
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://finance.naver.com/item/sise.naver?code=015760'
+
+response = requests.get(url)
+htmlCode = response.text
+
+bs = BeautifulSoup(htmlCode, 'html.parser')
+
+qian = bs.select_one('tbody > tr > td.num')
+# or qian = bs.select_one('strong#_nowVal.tag.p11')
+# 개발자 도구에 있는대로 가져오기
+
+print(qian.text)
+
+f = open('price.txt', 'w')
+f.write(f'한국전력의 현재가는 {qian.txt}원입니다.')
 f.close()
