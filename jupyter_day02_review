@@ -1,0 +1,30 @@
+# review
+
+import pandas as pd
+
+# 행렬 구조를 가진 데이터에서는 행 하나가 데이터 하나를 뜻한다.
+# 그리고 열은 데이터 안에서 세부 항목을 나타내기 위해 사용된다.
+
+singer = [
+    ['conan gray', 'maniac'],
+    ['sam ock', 'all i need'],
+    ['xia', 'too love']
+]
+
+# 데이터 프레임으로 만들되, 행과 열 이름을 추가해보자
+
+df = pd.DataFrame(singer, columns = ['singer', 'main song'], index = ['1st', '2nd', '3rd'])
+print(df)
+
+# 데이터에 행 추가
+
+df.loc[3] = ['queen', 'mama']
+# df.index(3) = ['4st']
+print(df)
+
+# 행 삭제 - 행 이름, 축 번호, 즉각 반영 여부
+df.drop(3, axis = 0, inplace = True)
+print(df)
+
+# 엑셀 형식으로 내보내기
+df.to_excel('name.xlsx')
