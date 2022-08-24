@@ -17,13 +17,13 @@ df = pd.DataFrame(singer, columns = ['singer', 'main song'], index = ['1st', '2n
 print(df)
 
 # 데이터에 행 추가
+# 이름을 넣고 싶으면 번호를 지정하지 않고 이름을 입력하면 마지막 행에 추가가 된다.
+df.loc['4th'] = ['queen', 'mama']
 
-df.loc[3] = ['queen', 'mama']
-# df.index(3) = ['4st']
 print(df)
 
 # 행 삭제 - 행 이름, 축 번호, 즉각 반영 여부
-df.drop(3, axis = 0, inplace = True)
+df.drop('4th', axis = 0, inplace = True)
 print(df)
 
 # 엑셀 형식으로 내보내기
