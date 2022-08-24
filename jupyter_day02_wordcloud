@@ -1,0 +1,73 @@
+
+# in 아나콘다 프롬프트
+
+# 아나콘다에서 해야 할 작업을 명령어 형태로 입력하는 도구
+# 인터넷에서 외부 모듈을 받아올 때 가장 효율적이다.
+
+# 가상환경 모드 체크
+conda env list
+
+# 사용할 가상환경 설정
+conda activate #환경이름
+
+# 인터넷에서 워드 클라우드 받아오기
+conda install -c http://conda.anaconda.org/conda-forge wordcloud
+
+
+# -----back to jupyter-----
+
+
+# 워드클라우드 모듈 中 일부 기능만 가져오기
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt # 결과물을 그려주는 모듈
+
+txtFile = 'message.txt'
+
+# 'r'모드와 다른 방법 사용
+
+text = open(txtFile, encoding = "UTF-8").read() # 읽어들인 다음 내용을 가져오기
+
+# 읽기 위해 여는 방법 中 하나
+# encoding : 데이터를 문자로 읽어들이는 작업
+# UTF-8 은 인코딩 종류, 내 문자가 형성 및 해석되는 방식
+
+print(text)
+
+wc = WordCloud(background_color = 'white', width = 1920, height = 1080)
+result = wc.generate(text) # 실행 할 텍스트(내용) 전달
+
+# 화면에 출력하기
+fig = plt.figure()
+plt.imshow(result)
+
+# 이미지 파일 형태로 저장하기
+plt.savefig('robert.svg')
+
+
+# ---- 같은 wordcloud 마스킹(모양) 주기 -----
+
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt 
+from PIL import Image  # 이미지 분석
+import numpy as np     # 수치 분석
+
+txtFile = 'message.txt'
+imgFile = 'money.png'
+
+# 마스킹 처리 해주기
+moneyPocket = np.array(Image.open(imgFile)) # 마스킹 영역을 분석한 객체
+
+text = open(txtFile, encoding = "UTF-8").read()
+print(text)
+
+wc = WordCloud(background_color = 'white',
+               width = 1920, height = 1080,
+              mask = moneyPocket) # 마스크 추가
+result = wc.generate(text) 
+
+fig = plt.figure()
+plt.imshow(result)
+plt.axis('off') # 축값 표시 x
+
+plt.savefig('robert.svg')
+# 마스킹 처리된 결과물이 업데이트
