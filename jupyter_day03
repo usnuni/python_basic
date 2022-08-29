@@ -1,0 +1,22 @@
+
+# seaborn 모듈 : 그래프 관련
+
+# review - word colud
+
+import requests
+from bs4 import BeautifulSoup
+
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+
+response = requests.get('https://www.bbc.com/news/science-environment-62707359')
+htmlCode = response.text
+
+soup = BeautifulSoup(htmlCode, 'html.parser')
+content = soup.select_one('article.ssrcss-pv1rh6-ArticleWrapper')
+
+myText = content.text
+
+wc = WordCloud(background_color = 'white', width = 1920, height = 1080).generate(myText)
+plt.imshow(wc)
+plt.axis('off')
