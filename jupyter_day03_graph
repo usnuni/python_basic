@@ -1,0 +1,44 @@
+# ----- 간단한 직선 그래프 -----
+
+import pandas as pd
+import seaborn as sb 
+# 그래프 관련 기능을 df에 추가
+
+data = {
+    "Date" : ['2022-08-29', '2022-08-30', '2022-08-31'],
+    "Price" : [5000, 5800, 5600]
+}
+
+df = pd.DataFrame(data)
+print(df)
+
+# 간단한 그래프 출력 : df.plot() 
+
+# 선 그래프 그리기
+sb.lineplot(data = df, x='Date', y='Price') 
+# 매개변수를 필수적으로 지정해주어야 한다.
+
+# ----- 시계열 그래프 그리기 -----
+
+# 시계열 데이터 : 시간에 따라 달라지는 데이터
+# 시계열 그래프 : 시계열 데이터 기반의 그래프
+
+import pandas as pd
+import seaborn as sb 
+
+# 시계열 그래프는 기본적으로 수(number)를 표시하도록 되어있다.
+prices = pd.read_csv('samsung_price.csv')
+
+# 날짜 값 잘 보이게 수정하기
+index = 0
+for data in prices['Date'] : 
+    prices['Date'].loc[index] = data.split('.')[1] + '/' + data.split('.')[2]
+        # loc[행번호] : 행에 접근
+    index = index + 1
+    
+# 문자열 형태로 쓰여있는 가격을 실제 숫자로 바꿔주는 작업이 필요
+# numeric : 열 또는 행 전체를 숫자로 변환해주는 함수
+# 해야할 일 : 문자열 안에서 쉼표 제거 후 수치로 변환하기
+prices['Price'] = pd.to_numeric(prices['Price'].str.replace(',',''))
+
+sb.lineplot(data=prices, x='Date', y='Price')
