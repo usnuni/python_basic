@@ -1,0 +1,117 @@
+
+import sqlite3 as slt
+ 
+# step1 : 데이터를 저장할 데이터베이스 파일 만들기
+con = slt.connect('rivers.db')
+
+# step2 : 연결된 파일에 다양한 기능을 수핼할 수 있는 객체 생성
+# sql 에서는 동작을 수행할 객체를 따로 생성해주어야 한다.
+cur = con.cursor()
+
+# step 3 : 데이터를 보관할 테이블(table) 만들기
+# 존재하는 테이블을 중목으로 만들 수 없다.
+cur.execute("DROP TABLE IF EXISTS rivers")
+cur.execute('CREATE TABLE rivers (city TEXT, name TEXT)')
+
+# step 4 : 테이블에 데이터를 새로 저장해보기
+cur.execute("INSERT INTO rivers VALUES('서울', '도림천')")
+cur.execute("INSERT INTO rivers VALUES('대전', '유등천')")
+cur.execute("INSERT INTO rivers VALUES('부천', '심곡천')")
+cur.execute("INSERT INTO rivers VALUES('안양', '안양천')")
+
+# step 5 : 삽입한 데이터를 저장하기(ctrl + s)
+con.commit()
+
+# step 6 : 읽어보기
+for data in cur.execute("SELECT * FROM rivers") :
+    print(data)
+
+# step 7 : 모든 연결 해제하기
+cur.close()
+con.close()
+
+
+
+
+# ----- 반복문을 활용해서 입력해보기 -----
+import sqlite3 as slt
+
+con = slt.connect("river.db")
+cur = con.cursor()
+
+cur.execute("DROP TABLE IF EXISTS river")
+cur.execute("CREATE TABLE river (city TEXT, name TEXT)")
+
+# cf) 이터러블 객체 : 순서가 있어서 for문을 만들 때 쓸 수 있는 데이터
+
+for i in range(4) :
+    city = input("도시이름 : ")
+    name = input("하천이름 : ")
+    cur.execute(f"INSERT INTO river VALUES ('{city}', '{name}')")
+
+con.commit()
+
+for data in cur .execute("SELECT * FROM river") :
+    print(data)
+    
+cur.close()
+con.close()
+
+
+
+
+# -----활용 2 -----
+import sqlite3 as slt
+ 
+con = slt.connect('snacks.db')
+cur = con.cursor()
+
+# cur.execute("DROP TABLE IF EXISTS snack") 
+# 이거 왜 이름이 다른지 : 파일이름이랑 테이블 이름이라 상관없음
+cur.execute('CREATE TABLE IF NOT EXISTS snack (number INTEGER, name TEXT, price INTEGER)')
+# 없으면 만들고 있으면 내비둬라 : 이걸 쓰면 실핼할 때마다 데이터 누적되어 저장
+
+cur.execute("INSERT INTO snack VALUES (1, '스윙칩', 1600)")
+cur.execute("INSERT INTO snack VALUES (2, '감자톡', 2000)")
+cur.execute("INSERT INTO snack VALUES (3, '버터링', 2500)")
+cur.execute("INSERT INTO snack VALUES (4, '꼬북칩', 1000)")
+
+# 조건을 추가하여 해당하는 것 지우기
+cur.execute("DELETE FROM snack WHERE name='버터링'")
+con.commit()
+
+# SELECT 명령은 값을 반환하고, 그 사실을 기억한다
+cur.execute("SELECT * FROM snack")
+print(cur.fetchall()) # 기억하고 있는 데이터 보기
+
+cur.close()
+con.close()
+
+
+
+
+# ----- 반복문 활용 2 -----
+import sqlite3 as slt
+ 
+con = slt.connect('snacks.db')
+cur = con.cursor()
+
+cur.execute("DROP TABLE IF EXISTS snack") 
+cur.execute('CREATE TABLE IF NOT EXISTS snack (number INTEGER, name TEXT, price INTEGER)')
+
+# 입력한 문자를 숫자열로 변환
+fig = int(input("몇 개의 데이터를 삽입하고 싶나요? "))
+for i in range(fig) :
+    number = int(input("판매순위 : "))
+    name = input("제품명 : ")
+    price = int(input("가격 : "))
+    cur.execute(f"INSERT INTO snack VALUES ('{number}', '{name}','{price}')")
+    
+con.commit()
+
+cur.execute("SELECT * FROM snack")
+print(cur.fetchall()) 
+
+cur.close()
+con.close()
+
