@@ -1,0 +1,41 @@
+# ------database + csv-----
+# ------데이터베이스의 내용을 읽어다가 csv 형식으로 내보내기-----
+import sqlite3 as slt
+
+con = slt.connect('snack.db')
+cur = con.cursor()
+
+cur.execute("SELECT * FROM snack")
+datas = cur.fetchall()
+print(datas)
+
+myFile = open("snack.csv", "w")
+for row in datas :
+    myFile.write(str(row[0]) + "," + row[1] + "," + str(row[2]) + "\n")
+    # write : 문자열을 file에 써주는 기능
+    
+myFile.close()
+
+
+
+# ------데이터베이스의 내용을 읽어다가 데이터프레임 만들기-----
+import sqlite3 as slt
+import pandas as pd
+
+con = slt.connect('rivers.db')
+cur = con.cursor()
+
+cur.execute("SELECT * FROM rivers")
+datas = cur.fetchall()
+print(datas)
+
+df = pd.DataFrame(datas)
+print(df)
+
+# 저장하기
+df.to_csv('./rivers.csv', index = False, encoding = 'utf-8-sig')
+# ./ : 작업 중인 폴더 라는 뜻의 기호, 안 써도 달라지는 건 없다. 
+# utf : 한글 깨짐 방지 인코딩 양식
+
+
+
