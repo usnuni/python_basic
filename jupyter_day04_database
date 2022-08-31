@@ -115,3 +115,26 @@ print(cur.fetchall())
 cur.close()
 con.close()
 
+
+# -----데이터 수정하기 -----
+import sqlite3 as slt
+
+con = slt.connect('singers.db')
+
+cur = con.cursor()
+
+cur.execute("DROP TABLE IF EXISTS singer")
+cur.execute('CREATE TABLE singer (artist TEXT, song TEXT)')
+cur.execute("INSERT INTO singer VALUES('김건모', '핑계')")
+cur.execute("INSERT INTO singer VALUES('이소라', '제발')")
+con.commit()
+
+cur.execute("UPDATE singer SET song='잘못된 만남' WHERE artist='김건모'")
+con.commit()
+
+
+for data in cur.execute("SELECT * FROM singer") :
+    print(data)
+
+cur.close()
+con.close()
